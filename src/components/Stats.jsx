@@ -19,7 +19,6 @@ function ScrambleNumber({ target, decimal, suffix }) {
   useEffect(() => {
     const el = ref.current
     if (!el || triggered.current) return
-
     const chars = '0123456789'
     const dur = 2200
     let raf
@@ -54,10 +53,7 @@ function ScrambleNumber({ target, decimal, suffix }) {
       once: true,
     })
 
-    return () => {
-      trig.kill()
-      cancelAnimationFrame(raf)
-    }
+    return () => { trig.kill(); cancelAnimationFrame(raf) }
   }, [target, decimal, suffix])
 
   return <span ref={ref} style={{ fontVariantNumeric: 'tabular-nums' }}>0{suffix}</span>
@@ -71,11 +67,7 @@ export default function Stats() {
       gsap.utils.toArray('.stat-item').forEach((stat, i) => {
         gsap.from(stat, {
           scrollTrigger: { trigger: stat, start: 'top 90%' },
-          y: 40,
-          opacity: 0,
-          duration: 0.7,
-          delay: i * 0.1,
-          ease: 'power2.out',
+          y: 40, opacity: 0, duration: 0.7, delay: i * 0.1, ease: 'power2.out',
         })
       })
     }, sectionRef)
@@ -83,43 +75,30 @@ export default function Stats() {
   }, [])
 
   return (
-    <section
-      id="metrics"
-      ref={sectionRef}
-      style={{
-        position: 'relative',
-        zIndex: 10,
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '100px 24px',
-      }}
-    >
+    <section id="metrics" ref={sectionRef} style={{
+      position: 'relative', zIndex: 10,
+      maxWidth: '1200px', margin: '0 auto',
+      padding: '100px 24px',
+    }}>
       <div style={{
         fontFamily: "'Space Mono', monospace",
-        fontSize: '10px',
-        letterSpacing: '4px',
-        color: 'var(--cyan)',
-        opacity: 0.55,
-        textTransform: 'uppercase',
-        marginBottom: '14px',
+        fontSize: '10px', letterSpacing: '4px',
+        color: 'var(--cyan)', opacity: 0.50,
+        textTransform: 'uppercase', marginBottom: '14px',
       }}>
         04 // METRICS
       </div>
       <h2 style={{
         fontFamily: "'Orbitron', sans-serif",
         fontSize: 'clamp(26px, 5vw, 52px)',
-        fontWeight: 700,
-        letterSpacing: '2px',
-        marginBottom: '20px',
+        fontWeight: 700, letterSpacing: '2px', marginBottom: '20px',
       }}>
         <ScrambleText text="By The Numbers" delay={0} />
       </h2>
       <p style={{
-        fontSize: '15px',
-        lineHeight: 1.8,
-        color: 'rgba(224,224,224,0.55)',
-        maxWidth: '640px',
-        marginBottom: '60px',
+        fontSize: '15px', lineHeight: 1.8,
+        color: 'rgba(224,230,240,0.50)',
+        maxWidth: '640px', marginBottom: '60px',
       }}>
         Our simulation engine has tested, broken, and graduated AI agents at a scale no manual QA team can match.
       </p>
@@ -130,45 +109,34 @@ export default function Stats() {
         gap: '28px',
       }}>
         {STATS.map((s) => (
-          <div
-            key={s.label}
-            className="stat-item"
-            style={{
-              textAlign: 'center',
-              padding: '40px 20px',
-              border: '1px solid rgba(0,240,255,0.06)',
-              background: 'rgba(0,240,255,0.01)',
-              position: 'relative',
-              overflow: 'hidden',
-            }}
-          >
+          <div key={s.label} className="stat-item" style={{
+            textAlign: 'center',
+            padding: '40px 20px',
+            border: '1px solid rgba(0,229,255,0.05)',
+            background: 'rgba(0,229,255,0.012)',
+            position: 'relative', overflow: 'hidden',
+          }}>
             <div style={{
-              position: 'absolute',
-              top: 0, left: 0, right: 0,
+              position: 'absolute', top: 0, left: 0, right: 0,
               height: '2px',
               background: 'linear-gradient(90deg, transparent, var(--cyan), transparent)',
-              opacity: 0.5,
+              opacity: 0.45,
             }} />
             <div style={{
               fontFamily: "'Orbitron', sans-serif",
               fontSize: 'clamp(28px, 4vw, 48px)',
-              fontWeight: 900,
-              color: 'var(--cyan)',
-              textShadow: '0 0 20px rgba(0,240,255,0.35)',
+              fontWeight: 900, color: 'var(--cyan)',
+              textShadow: '0 0 20px rgba(0,229,255,0.30)',
               letterSpacing: '2px',
             }}>
               <ScrambleNumber target={s.target} decimal={s.decimal} suffix={s.suffix} />
             </div>
             <div style={{
               fontFamily: "'Space Mono', monospace",
-              fontSize: '10px',
-              letterSpacing: '2px',
-              color: 'rgba(224,224,224,0.4)',
-              marginTop: '10px',
-              textTransform: 'uppercase',
-            }}>
-              {s.label}
-            </div>
+              fontSize: '10px', letterSpacing: '2px',
+              color: 'rgba(224,230,240,0.35)',
+              marginTop: '10px', textTransform: 'uppercase',
+            }}>{s.label}</div>
           </div>
         ))}
       </div>

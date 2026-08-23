@@ -67,59 +67,43 @@ export default function Terminal() {
   }, [])
 
   return (
-    <section
-      id="terminal"
-      ref={sectionRef}
-      style={{
-        position: 'relative',
-        zIndex: 10,
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '100px 24px',
-      }}
-    >
+    <section id="terminal" ref={sectionRef} style={{
+      position: 'relative', zIndex: 10,
+      maxWidth: '1200px', margin: '0 auto',
+      padding: '100px 24px',
+    }}>
       <div style={{
         fontFamily: "'Space Mono', monospace",
-        fontSize: '10px',
-        letterSpacing: '4px',
-        color: 'var(--cyan)',
-        opacity: 0.55,
-        textTransform: 'uppercase',
-        marginBottom: '14px',
+        fontSize: '10px', letterSpacing: '4px',
+        color: 'var(--cyan)', opacity: 0.50,
+        textTransform: 'uppercase', marginBottom: '14px',
       }}>
         03 // LIVE SIMULATION LOG
       </div>
       <h2 style={{
         fontFamily: "'Orbitron', sans-serif",
         fontSize: 'clamp(26px, 5vw, 52px)',
-        fontWeight: 700,
-        letterSpacing: '2px',
-        marginBottom: '32px',
+        fontWeight: 700, letterSpacing: '2px', marginBottom: '32px',
       }}>
         <ScrambleText text="Terminal Output" delay={0} />
       </h2>
 
       <div style={{
-        background: 'rgba(0,0,0,0.55)',
-        border: '1px solid rgba(0,240,255,0.15)',
+        background: 'rgba(2,2,6,0.60)',
+        border: '1px solid rgba(0,229,255,0.10)',
         borderRadius: '3px',
         padding: '28px',
         fontFamily: "'Space Mono', monospace",
-        fontSize: '12px',
-        lineHeight: 2,
-        position: 'relative',
-        overflow: 'hidden',
-        boxShadow: '0 0 40px rgba(0,240,255,0.04)',
-        maxHeight: '420px',
-        overflowY: 'auto',
+        fontSize: '12px', lineHeight: 2,
+        position: 'relative', overflow: 'hidden',
+        boxShadow: '0 0 40px rgba(0,229,255,0.03)',
+        maxHeight: '420px', overflowY: 'auto',
       }}>
         <div style={{
           color: 'var(--cyan)',
-          marginBottom: '16px',
-          paddingBottom: '10px',
-          borderBottom: '1px solid rgba(0,240,255,0.12)',
-          fontSize: '11px',
-          letterSpacing: '1px',
+          marginBottom: '16px', paddingBottom: '10px',
+          borderBottom: '1px solid rgba(0,229,255,0.10)',
+          fontSize: '11px', letterSpacing: '1px',
         }}>
           simuliverse@foundry:~$ ./init_simulation.sh --agents=10000 --mode=adversarial
         </div>

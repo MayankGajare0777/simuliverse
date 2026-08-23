@@ -1,21 +1,18 @@
 export default function Footer() {
   return (
     <footer style={{
-      position: 'relative',
-      zIndex: 10,
+      position: 'relative', zIndex: 10,
       textAlign: 'center',
       padding: '70px 24px',
       fontFamily: "'Space Mono', monospace",
-      fontSize: '10px',
-      color: 'rgba(224,224,224,0.2)',
+      fontSize: '10px', color: 'rgba(224,230,240,0.18)',
       letterSpacing: '3px',
-      borderTop: '1px solid rgba(0,240,255,0.06)',
+      borderTop: '1px solid rgba(0,229,255,0.05)',
     }}>
       <div style={{
         fontFamily: "'Orbitron', sans-serif",
-        fontSize: '14px',
-        letterSpacing: '6px',
-        color: 'rgba(0,240,255,0.15)',
+        fontSize: '14px', letterSpacing: '6px',
+        color: 'rgba(0,229,255,0.12)',
         marginBottom: '16px',
       }}>
         SIMULIVERSE

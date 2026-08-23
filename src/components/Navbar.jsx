@@ -15,55 +15,39 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav
-      ref={navRef}
-      style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0,
-        zIndex: 200,
-        padding: '20px 32px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        background: scrolled ? 'rgba(2,2,4,0.7)' : 'transparent',
-        borderBottom: scrolled ? '1px solid rgba(0,240,255,0.08)' : '1px solid transparent',
-        transition: 'all 0.4s ease',
-      }}
-    >
+    <nav ref={navRef} style={{
+      position: 'fixed', top: 0, left: 0, right: 0,
+      zIndex: 200,
+      padding: '20px 32px',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      backdropFilter: scrolled ? 'blur(16px)' : 'none',
+      background: scrolled ? 'rgba(2,2,6,0.75)' : 'transparent',
+      borderBottom: scrolled ? '1px solid rgba(0,229,255,0.06)' : '1px solid transparent',
+      transition: 'all 0.4s ease',
+    }}>
       <div style={{
         fontFamily: "'Orbitron', sans-serif",
-        fontSize: '18px',
-        fontWeight: 700,
-        letterSpacing: '4px',
-        color: 'var(--cyan)',
-        textShadow: '0 0 12px rgba(0,240,255,0.4)',
+        fontSize: '18px', fontWeight: 700,
+        letterSpacing: '4px', color: 'var(--cyan)',
+        textShadow: '0 0 12px rgba(0,229,255,0.35)',
       }}>
         SIMULIVERSE
       </div>
       <div className="hide-mobile" style={{
-        display: 'flex',
-        gap: '32px',
+        display: 'flex', gap: '32px',
         fontFamily: "'Space Mono', monospace",
-        fontSize: '11px',
-        letterSpacing: '2px',
+        fontSize: '11px', letterSpacing: '2px',
         textTransform: 'uppercase',
       }}>
         {['Foundry', 'Terminal', 'Metrics'].map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
+          <a key={item} href={`#${item.toLowerCase()}`}
             style={{
-              color: 'rgba(224,224,224,0.55)',
-              textDecoration: 'none',
-              transition: 'color 0.3s',
-              cursor: 'pointer',
+              color: 'rgba(224,230,240,0.50)',
+              textDecoration: 'none', transition: 'color 0.3s', cursor: 'pointer',
             }}
             onMouseEnter={(e) => e.target.style.color = 'var(--cyan)'}
-            onMouseLeave={(e) => e.target.style.color = 'rgba(224,224,224,0.55)'}
-          >
-            {item}
-          </a>
+            onMouseLeave={(e) => e.target.style.color = 'rgba(224,230,240,0.50)'}
+          >{item}</a>
         ))}
       </div>
     </nav>
