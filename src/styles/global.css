@@ -1,0 +1,102 @@
+:root {
+  --void: #020204;
+  --void-light: #0a0a0f;
+  --cyan: #00f0ff;
+  --cyan-dim: rgba(0,240,255,0.12);
+  --magenta: #ff006e;
+  --magenta-dim: rgba(255,0,110,0.12);
+  --amber: #ff9e00;
+  --ghost: #e0e0e0;
+  --ghost-dim: rgba(224,224,224,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  background: var(--void);
+  color: var(--ghost);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+html.lenis, html.lenis body { height: auto; }
+
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  background: var(--void);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* CRT Overlay */
+.crt::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.18) 2px,
+    rgba(0,0,0,0.18) 4px
+  );
+  opacity: 0.35;
+}
+
+.crt::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 55%, rgba(0,0,0,0.55) 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--void); }
+::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+
+::selection {
+  background: rgba(0,240,255,0.25);
+  color: #fff;
+}
+
+/* Utility */
+.glow-cyan {
+  text-shadow: 0 0 20px rgba(0,240,255,0.4), 0 0 60px rgba(0,240,255,0.15);
+}
+
+.glow-magenta {
+  text-shadow: 0 0 20px rgba(255,0,110,0.4), 0 0 60px rgba(255,0,110,0.15);
+}
+
+.border-glow {
+  box-shadow: 0 0 20px rgba(0,240,255,0.08), inset 0 0 20px rgba(0,240,255,0.03);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; box-shadow: 0 0 20px rgba(0,240,255,0.3); }
+  50% { opacity: 0.7; box-shadow: 0 0 40px rgba(0,240,255,0.5); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
