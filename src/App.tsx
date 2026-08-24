@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
