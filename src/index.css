@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:italic&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 0 0% 4%;
+    --surface: 0 0% 8%;
+    --text: 0 0% 96%;
+    --muted: 0 0% 53%;
+    --stroke: 0 0% 12%;
+    --accent: 14 100% 64%;
+  }
+
+  body {
+    @apply bg-bg text-text-primary font-body antialiased selection:bg-[#FF6B4A]/20 selection:text-white;
+  }
+}
+
+@layer utilities {
+  .accent-gradient {
+    background: linear-gradient(90deg, #FF6B4A 0%, #FF8F75 100%);
+  }
+  
+  .accent-gradient-border {
+    position: relative;
+  }
+  
+  .accent-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #FF6B4A 0%, #FF8F75 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .accent-gradient-border:hover::before {
+    opacity: 1;
+  }
+}
